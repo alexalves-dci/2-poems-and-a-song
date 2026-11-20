@@ -86,10 +86,24 @@ h2 {
 .poem-text {
     flex: 1;
     min-width: 0;
+    font-size: 18px;
+    line-height: 1.8;
 }
 
 .poem-text p:first-child {
     margin-top: 0;
+}
+
+.poem-layout-reverse {
+    flex-direction: row;
+    gap: 24px;
+}
+
+.poem-layout-reverse .poem-text {
+    order: -1;
+    flex: 0 1 auto;
+    width: max-content;
+    max-width: 100%;
 }
 
 @media (max-width: 700px) {
@@ -99,5 +113,94 @@ h2 {
 
     .poem-layout .poem-image {
         width: 100%;
+    }
+
+    .poem-layout-reverse .poem-text {
+        order: 0;
+        flex: initial;
+        width: 100%;
+    }
+}
+
+footer {
+    padding: 80px 24px;
+    background-color: #222;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+        url("assets/header.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    color: #f5f2ed;
+    text-align: center;
+}
+
+footer a {
+    color: inherit;
+    text-underline-offset: 4px;
+}
+    
+footer a:hover,
+footer a:focus-visible {
+    color: #08dae6;
+}
+
+.poem-text h3 {
+    margin: 32px 0 12px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.poem-text h3:first-child {
+    margin-top: 0;
+}
+
+@media (min-width: 701px) {
+    #\32 047 .poem-image {
+        width: 45%;
+        max-width: none;
+        height: 480px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+#song .poem-layout {
+    flex-direction: row;
+    gap: 32px;
+}
+
+#song .poem-image {
+    width: 45%;
+    max-width: none;
+    height: auto;
+    flex-shrink: 0;
+}
+
+#song .poem-text {
+    flex: 1;
+    width: auto;
+    max-width: none;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    #song .poem-layout {
+        flex-direction: column;
+    }
+
+    #song .poem-image {
+        width: 100%;
+    }
+
+    #song .poem-text {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1000px) {
+    #song .poem-image {
+        width: 50%;
     }
 }
