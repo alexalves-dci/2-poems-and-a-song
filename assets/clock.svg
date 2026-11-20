@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="16" height="16" viewBox="0 0 16 16">
+    <circle
+        cx="8" cy="8" r="7.5"
+        fill="none"
+        stroke="currentColor"
+    />
+    <path
+        d="M8 8 L4.52 8.40 M8 8 L2.62 6.86"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+    />
+</svg>

@@ -11,10 +11,10 @@ body {
 }
 
 .hero {
-     padding: 80px 24px;
+    padding: 80px 24px;
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.8)),
-        url("assets/header-2.jpg");
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.55)),
+    url("assets/header-2.jpg");
     background-size: cover;
     background-position: center top;
     color: #f5f2ed;
@@ -34,18 +34,31 @@ nav {
     justify-content: center;
     gap: 16px 32px;
     margin-top: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    gap: 24px 48px;
 }
 
 nav a {
     color: inherit;
     text-decoration: none;
     border-bottom: 1px solid #aaa;
+    gap: 12px;
 }
 
 nav a:hover,
 nav a:focus-visible {
     color: #08dae6;
     border-color: currentColor;
+}
+
+nav .nav-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    filter: brightness(0) invert(1);
+    transition: filter 0.2s ease;
 }
 
 main {
@@ -60,8 +73,12 @@ section {
 }
 
 h2 {
-    font-size: 32px;
+    margin: 0 0 32px;
+    font-size: clamp(32px, 4vw, 52px);
     font-weight: normal;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-shadow: 0 0 14px rgba(8, 218, 230, 0.25);
 }
 
 .poem-image {
@@ -86,8 +103,20 @@ h2 {
 .poem-text {
     flex: 1;
     min-width: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
     font-size: 18px;
     line-height: 1.8;
+    padding-left: 24px;
+    border-left: 2px solid rgba(8, 218, 230, 0.3);
+}
+
+.poem-text p {
+    margin: 0 0 28px;
+}
+
+.poem-text p:last-child {
+    margin-bottom: 0;
 }
 
 .poem-text p:first-child {
@@ -126,8 +155,8 @@ footer {
     padding: 80px 24px;
     background-color: #222;
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-        url("assets/header.jpg");
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6)),
+    url("assets/header.jpg");
     background-size: cover;
     background-position: center bottom;
     color: #f5f2ed;
@@ -204,3 +233,149 @@ footer a:focus-visible {
         width: 50%;
     }
 }
+
+nav a:hover .nav-icon,
+nav a:focus-visible .nav-icon {
+    filter:
+        brightness(0)
+        saturate(100%)
+        invert(77%)
+        sepia(83%)
+        saturate(1941%)
+        hue-rotate(129deg)
+        brightness(96%)
+        contrast(94%)
+        drop-shadow(0 0 5px #08dae6);
+}
+
+@media (min-width: 701px) {
+    .poem-layout .poem-image {
+        position: sticky;
+        top: 32px;
+    }
+}
+
+.poem-image {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 24px 0;
+}
+
+main img.poem-image {
+    border-radius: 20px;
+    border: 2px solid #087b82;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.author {
+    margin: 0 0 24px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.intro {
+    max-width: 440px;
+    margin: 24px auto 0;
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.6;
+    color: #e0ddd8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 32px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+.dedication {
+    margin: 32px 0 0;
+    color: #08dae6;
+    text-shadow: 0 0 12px rgba(8, 218, 230, 0.7);
+}
+
+.dedication p {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.greek-ornament {
+    display: block;
+    width: 140px;
+    height: 24px;
+    margin: 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 4px rgba(8, 218, 230, 0.6));
+}
+
+@media (min-width: 701px) {
+    .poem-layout-reverse .poem-text {
+        border-left: 0;
+        padding-left: 0;
+        border-right: 2px solid rgba(8, 218, 230, 0.3);
+        padding-right: 24px;
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero h1 {
+        animation: fade-up 0.8s ease-out both;
+    }
+
+    .hero .intro {
+        animation: fade-up 0.8s ease-out 0.15s both;
+    }
+
+    .hero nav {
+        animation: fade-up 0.8s ease-out 0.3s both;
+    }
+
+    main img.poem-image {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    main img.poem-image:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+    }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    h2 {
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    h2:hover {
+        transform: translateX(6px);
+        color: #087b82;
+    }
+}
+
